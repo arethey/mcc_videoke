@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 11, 2022 at 04:29 AM
+-- Generation Time: Feb 13, 2023 at 04:03 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 7.4.33
 
@@ -50,6 +50,7 @@ INSERT INTO `admin` (`id`, `username`, `password`, `admin_fee`, `gcash`) VALUES
 
 CREATE TABLE `book` (
   `id` int(100) NOT NULL,
+  `email` varchar(255) NOT NULL,
   `name` varchar(100) NOT NULL,
   `contact_number` varchar(80) NOT NULL,
   `Address` varchar(80) NOT NULL,
@@ -66,9 +67,14 @@ CREATE TABLE `book` (
 -- Dumping data for table `book`
 --
 
-INSERT INTO `book` (`id`, `name`, `contact_number`, `Address`, `landlord_id`, `bhouse_id`, `status`, `reserve`, `event`, `event_date`, `finish`) VALUES
-(1, 'gago', '123', 'gago', '2', '22931', '', '', 'Birthday', '2022-12-21', 'yes'),
-(2, 'edward', '2134', 'edward', '2', '22931', '', '', 'Wedding', '2022-12-15', 'yes');
+INSERT INTO `book` (`id`, `email`, `name`, `contact_number`, `Address`, `landlord_id`, `bhouse_id`, `status`, `reserve`, `event`, `event_date`, `finish`) VALUES
+(1, '', 'gago', '123', 'gago', '2', '22931', '', '', 'Birthday', '2022-12-21', 'yes'),
+(2, '', 'edward', '2134', 'edward', '2', '22931', '', '', 'Wedding', '2022-12-15', 'yes'),
+(3, '', 'test', '123', 'test', '2', '22931', '', '', 'Birthday', '2023-02-11', ''),
+(4, '', 'tetsetest', '123', 'aetat', '3', '27304', '', '', 'Birthday', '2023-02-11', 'yes'),
+(5, '', 'fasdfasdf', '123', 'asfasfasdfasdf', '3', '27304', '', '', 'Birthday', '2023-02-11', 'yes'),
+(6, '', 'asfasdf', '123', 'asfasdfa', '3', '27304', '', '', 'Birthday', '2023-02-11', ''),
+(7, 'ardiederrayal06@gmail.com', 'wew', '123', 'wew', '3', '27304', 'Approved', 'yes', 'Birthday', '2023-02-11', '');
 
 -- --------------------------------------------------------
 
@@ -175,7 +181,7 @@ CREATE TABLE `rental` (
 INSERT INTO `rental` (`id`, `rental_id`, `landlord_id`, `title`, `address`, `photo`, `monthly`, `description`, `video`, `type`, `status`, `date`, `fee`, `reserve`, `ref`, `shot`) VALUES
 (1, '53196', '1', '7Cs Sound System', 'Pili, Madridejos, Cebu', '7Cs.jpeg', '3000', 'Types of Events with complete package and prices\r\nBirthday Events with complete package set up and lights', 'movie.mp4', 'Videoke', 'Approved', '2022-12-07', '200', 'yes', '', ''),
 (2, '22931', '2', 'SMALL SOUND SYSTEM', 'Brgy, Atop-Atop, Bantayan, Cebu', 'small.jpeg', '200000', 'Types of Events:\r\nWedding  w/ two Box mcv, two Mid and complete light', 'movie.mp4', 'Videoke', 'Approved', '2022-12-07', '200', '', '', ''),
-(3, '27304', '3', 'DJ nEILz', 'Putian, Bantayan,Cebu', '66.jpg', '3500', 'Types of Events:\r\nBirthday \r\nComplete package and Lights', 'movie.mp4', 'Sound System', 'Approved', '2022-12-07', '200', '', '', ''),
+(3, '27304', '3', 'DJ nEILz', 'Putian, Bantayan,Cebu', '66.jpg', '3500', 'Types of Events:\r\nBirthday \r\nComplete package and Lights', 'movie.mp4', 'Sound System', 'Approved', '2022-12-07', '200', 'yes', '', ''),
 (4, '20371', '4', 'Jevy Rose Sound System', 'Brgy, San Agustin, Madridejos, Cebu', 'abt.jpg', '3000', 'Types of Events:\r\nWedding\r\nComplete Package w/ lights\r\n', 'movie.mp4', 'Sound System', 'Approved', '2022-12-07', '200', '', '', ''),
 (11, '88949', '12', 'Alolor Mobile Sound System', 'Mancilang, Madridejos, Cebu', '22.jpg', '3000', 'Events and Package Offer:\r\nBirthday party with complete set up with lights', 'movie.mp4', 'Sound System', 'Approved', '2022-12-08', '200', 'yes', '091773641234', 'ss1.jpg'),
 (12, '53612', '13', 'StephenZ Mobile Sound System', 'Mancilang, Madridejos, Cebu', '1main.jpg', '3000', 'Events and Package offer:\r\nBirthday with complete set up with lights', 'movie.mp4', 'Sound System', 'Approved', '2022-12-08', '200', '', '09254440751', 'ss3.png'),
@@ -193,6 +199,13 @@ CREATE TABLE `review` (
   `rating` varchar(80) NOT NULL,
   `comment` varchar(1000) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `review`
+--
+
+INSERT INTO `review` (`id`, `owner_id`, `rating`, `comment`) VALUES
+(6, '1', '5', 'dgdfgdfgdfgdfg');
 
 --
 -- Indexes for dumped tables
@@ -248,7 +261,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `book`
 --
 ALTER TABLE `book`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `gallery`
@@ -272,7 +285,7 @@ ALTER TABLE `rental`
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(80) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
